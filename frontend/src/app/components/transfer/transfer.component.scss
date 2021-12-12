@@ -1,0 +1,30 @@
+.float-target{
+    padding-top: 2%;
+}
+.buttonBankColor{
+    background-color:#6f42c1;
+}
+.form-labelInput{
+    color: black;
+    padding-left: 3%;
+}
+
+
+.btn:hover, .btn-large:hover, .btn-small:hover, .btn:focus {
+    background-color: #6835c5;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  input[type=text]:not(.browser-default):disabled, input[type=number]:not(.browser-default){
+      color:blueviolet;
+  }
+ 

@@ -1,0 +1,71 @@
+<app-fuente-materialize></app-fuente-materialize>
+
+<app-share></app-share>
+<div class="container h-100 float-target">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class="jumbotron">
+                <div>
+                    <h5 class="card-subtitle">Transferir
+                    </h5>
+                </div>
+<br>
+
+    <div>
+        <div class="form-group">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Buscar Destinatario</mat-label>
+              <input type="text"
+                     placeholder="Buscar ..."
+                     aria-label="Number"
+                     matInput
+                     [formControl]="myControl"
+                     [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option"  (onSelectionChange)="onSelFunc(option)">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+    </div>
+    <br>
+   
+        <h6 class="card-subtitle">Detalles del Destinatario
+        </h6>
+    </div>
+    <br>
+    <form #ClienteForm="ngForm" (ngSubmit)="UpdateCliente(ClienteForm)">
+      <div class="form-group row">
+        <label for="inputNombre" class="col-sm-2 col-form-label form-labelInput">Nombre</label>
+        <input [disabled]="true"  type="text"  id="inputNombre" class="form-control col-sm-10 col-form-label"  name="name" #name="ngModel" [(ngModel)]="destinatariosService.selectedDestinatarios.name">
+      </div>
+      <div class="form-group row">
+        <label for="inputcorreo" class="col-sm-2 col-form-label form-labelInput" >Correo</label>
+        <input [disabled]="true"  type="text"  id="inputcorreo" class="form-control col-sm-10 col-form-label" name="email" #email="ngModel" [(ngModel)]="destinatariosService.selectedDestinatarios.email">
+      </div>
+      <div class="form-group row">
+        <label for="inputBanco" class="col-sm-2 col-form-label form-labelInput">Banco</label>
+        <input [disabled]="true"  type="text"  id="inputBanco" class="form-control col-sm-10 col-form-label" name="bank"  #bank="ngModel" [(ngModel)]="destinatariosService.selectedDestinatarios.bank">
+      </div>
+      <div class="form-group row">
+        <label for="inputCta" class="col-sm-4 col-form-label form-labelInput" >Tipo de Cuenta</label>
+        <input [disabled]="true" type="text"  id="inputCta" class="form-control col-sm-6 col-form-label" name="typeAccount" #typeAccount="ngModel" [(ngModel)]="destinatariosService.selectedDestinatarios.typeAccount">
+      </div>
+  
+      <div class="form-group row">
+        <label for="inputNumber" class="col-sm-4 col-form-label form-labelInput" >Monto</label>
+        <input  type="number" class="form-control col-sm-6 col-form-label" id="inputNumber" placeholder="10000" name="monto" #monto="ngModel" [(ngModel)]="destinatariosService.selectedDestinatarios.monto">
+      </div>
+      <br>
+      <input type="text" hidden class="form-control col-sm-6 col-form-label" id="inputRut" name="rut" #rut="ngModel" [(ngModel)]="destinatariosService.selectedDestinatarios.rut">
+      <input type="text" hidden class="form-control col-sm-6 col-form-label" id="inputRut" name="_id" #_id="ngModel" [(ngModel)]="destinatariosService.selectedDestinatarios._id">
+    <div class="center">
+        <button class="btn buttonBankColor">Transferir</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
